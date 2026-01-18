@@ -62,7 +62,6 @@ const switchTheme = () => {
 
 const startViewTransition = (event: MouseEvent) => {
   // Fallback for browsers that don't support View Transitions
-  // @ts-expect-error - startViewTransition is not yet in TypeScript DOM types
   if (!document.startViewTransition) {
     switchTheme()
     return
@@ -75,7 +74,6 @@ const startViewTransition = (event: MouseEvent) => {
     Math.max(y, window.innerHeight - y)
   )
 
-  // @ts-expect-error - startViewTransition is not yet in TypeScript DOM types
   const transition = document.startViewTransition(() => {
     switchTheme()
   })
