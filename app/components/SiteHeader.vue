@@ -51,7 +51,7 @@ const darkLogo = 'https://res.cloudinary.com/dpurlknvy/image/upload/v1749425792/
 // Use colorMode for reactive logo switching (tracks DOM state)
 const logoSrc = computed(() => {
   const isDark = colorMode.value === 'dark'
-  return isDark ? lightLogo : darkLogo
+  return isDark ? darkLogo : lightLogo
 })
 
 const nextTheme = computed(() => (theme.value === 'dark' ? 'light' : 'dark'))
