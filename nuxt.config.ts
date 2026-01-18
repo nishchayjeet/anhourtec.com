@@ -37,6 +37,10 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
     {
+      path: '~/components/blog',
+      pathPrefix: false,
+    },
+    {
       path: '~/components',
       pathPrefix: false,
     },
@@ -138,6 +142,14 @@ export default defineNuxtConfig({
   // Sitemap configuration
   sitemap: {
     xsl: false,
+    exclude: [
+      '/admin/**',
+      '/api/**',
+      '/_nuxt/**'
+    ],
+    sources: [
+      '/api/__sitemap__/urls'
+    ]
   },
 
   // Robots.txt configuration
@@ -146,7 +158,8 @@ export default defineNuxtConfig({
       {
         userAgent: '*',
         allow: '/',
-      },
+        disallow: ['/admin/', '/api/', '/_nuxt/']
+      }
     ],
     sitemap: 'https://anhourtec.com/sitemap.xml',
   },
@@ -198,5 +211,13 @@ export default defineNuxtConfig({
     '/': { prerender: true },
     '/sitemap.xml': { prerender: true },
     '/robots.txt': { prerender: true },
+    '/api/**': { cache: false },
+  },
+
+  // Runtime config for CMS
+  runtimeConfig: {
+    public: {
+      cmsBase: 'https://content.iotkinect.com'
+    }
   },
 })
