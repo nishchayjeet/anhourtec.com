@@ -21,13 +21,15 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div
-    class="fixed top-0 left-0 right-0 z-[60] h-0.5 bg-transparent pointer-events-none transition-opacity duration-300"
-    :class="isVisible ? 'opacity-100' : 'opacity-0'"
-  >
+  <ClientOnly>
     <div
-      class="h-full bg-primary transition-all duration-100 ease-out"
-      :style="{ width: `${scrollProgress}%` }"
-    />
-  </div>
+      class="fixed top-0 left-0 right-0 z-[60] h-0.5 bg-transparent pointer-events-none transition-opacity duration-300"
+      :class="isVisible ? 'opacity-100' : 'opacity-0'"
+    >
+      <div
+        class="h-full bg-[hsl(var(--primary))] transition-all duration-100 ease-out"
+        :style="{ width: `${scrollProgress}%` }"
+      />
+    </div>
+  </ClientOnly>
 </template>

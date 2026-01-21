@@ -178,19 +178,19 @@ useHead({
 <template>
   <div class="min-h-screen">
     <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-background py-16 md:py-20">
+    <section class="relative overflow-hidden bg-[hsl(var(--background))] py-16 md:py-20">
       <!-- Background Pattern -->
       <div class="absolute inset-0 overflow-hidden">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-to-b from-primary/5 via-primary/5 to-transparent rounded-full blur-3xl" />
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-to-b from-[hsl(var(--primary))]/5 via-[hsl(var(--primary))]/5 to-transparent rounded-full blur-3xl" />
       </div>
 
-      <div class="container relative z-10">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <BlurFade>
           <div class="text-center max-w-3xl mx-auto">
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground tracking-tight">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-[hsl(var(--foreground))] tracking-tight">
               Blog
             </h1>
-            <p class="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p class="mt-4 text-lg text-[hsl(var(--muted-foreground))] max-w-2xl mx-auto">
               Explore the latest tech trends, tutorials, industry insights, and updates from our team.
             </p>
           </div>
@@ -201,20 +201,20 @@ useHead({
     <!-- Featured Blog -->
     <section
       v-if="featuredBlog"
-      class="py-12 bg-muted/50"
+      class="py-12 bg-[hsl(var(--muted))]/50"
     >
-      <div class="container">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <ClientOnly>
           <div class="mb-8 flex items-center justify-between">
             <div class="flex items-center gap-3">
-              <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10">
-                <svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-[hsl(var(--primary))]/10">
+                <svg class="w-5 h-5 text-[hsl(var(--primary))]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
                 </svg>
               </div>
               <div>
-                <h2 class="text-xl font-bold text-foreground">Featured Article</h2>
-                <p class="text-sm text-muted-foreground">Our top picks for you</p>
+                <h2 class="text-xl font-bold text-[hsl(var(--foreground))]">Featured Article</h2>
+                <p class="text-sm text-[hsl(var(--muted-foreground))]">Our top picks for you</p>
               </div>
             </div>
 
@@ -231,8 +231,8 @@ useHead({
                   class="transition-all duration-300 rounded-full"
                   :class="[
                     index === currentFeaturedIndex
-                      ? 'w-6 h-2 bg-primary'
-                      : 'w-2 h-2 bg-muted-foreground/30 group-hover:bg-primary/50'
+                      ? 'w-6 h-2 bg-[hsl(var(--primary))]'
+                      : 'w-2 h-2 bg-[hsl(var(--muted-foreground))]/30 group-hover:bg-[hsl(var(--primary))]/50'
                   ]"
                 />
               </button>
@@ -260,13 +260,13 @@ useHead({
           <template #fallback>
             <div class="animate-pulse">
               <div class="mb-8 flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-muted" />
+                <div class="w-10 h-10 rounded-xl bg-[hsl(var(--muted))]" />
                 <div>
-                  <div class="h-6 w-48 bg-muted rounded" />
-                  <div class="h-4 w-32 bg-muted rounded mt-2" />
+                  <div class="h-6 w-48 bg-[hsl(var(--muted))] rounded" />
+                  <div class="h-4 w-32 bg-[hsl(var(--muted))] rounded mt-2" />
                 </div>
               </div>
-              <div class="h-80 bg-muted rounded-lg" />
+              <div class="h-80 bg-[hsl(var(--muted))] rounded-lg" />
             </div>
           </template>
         </ClientOnly>
@@ -274,28 +274,28 @@ useHead({
     </section>
 
     <!-- Blogs Grid -->
-    <BlurFade :delay="0.3" class="py-16 bg-muted/50">
-      <div class="container">
+    <BlurFade :delay="0.3" class="py-16 bg-[hsl(var(--muted))]/50">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <!-- Header with search and results count -->
         <div class="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div class="flex items-center gap-3">
-            <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10">
-              <svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-[hsl(var(--primary))]/10">
+              <svg class="w-5 h-5 text-[hsl(var(--primary))]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
               </svg>
             </div>
             <div>
-              <h2 class="text-xl font-bold text-foreground">
+              <h2 class="text-xl font-bold text-[hsl(var(--foreground))]">
                 All Articles
               </h2>
-              <p class="text-sm text-muted-foreground">Browse our collection</p>
+              <p class="text-sm text-[hsl(var(--muted-foreground))]">Browse our collection</p>
             </div>
           </div>
           <div class="flex items-center gap-4">
             <!-- Search Input -->
             <div class="relative">
               <svg
-                class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground"
+                class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[hsl(var(--muted-foreground))]"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -308,10 +308,10 @@ useHead({
                 v-model="searchQuery"
                 type="text"
                 placeholder="Search articles..."
-                class="w-48 pl-9 pr-3 py-2 text-sm rounded-lg bg-card border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                class="w-48 pl-9 pr-3 py-2 text-sm rounded-lg bg-[hsl(var(--card))] border border-[hsl(var(--border))] text-[hsl(var(--foreground))] placeholder-[hsl(var(--muted-foreground))] focus:outline-none focus:ring-2 focus:ring-[hsl(var(--primary))] focus:border-transparent transition-all"
               />
             </div>
-            <p class="text-sm text-muted-foreground whitespace-nowrap">
+            <p class="text-sm text-[hsl(var(--muted-foreground))] whitespace-nowrap">
               {{ filteredBlogs.length }} {{ filteredBlogs.length === 1 ? 'article' : 'articles' }}
             </p>
           </div>
@@ -334,7 +334,7 @@ useHead({
           <!-- Load More Button -->
           <div v-if="hasMoreToLoad" class="mt-12 text-center">
             <button
-              class="inline-flex items-center justify-center px-8 py-3 text-sm font-medium rounded-lg border border-border bg-card text-foreground hover:bg-accent transition-colors"
+              class="inline-flex items-center justify-center px-8 py-3 text-sm font-medium rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))] text-[hsl(var(--foreground))] hover:bg-[hsl(var(--accent))] transition-colors"
               @click="loadMore"
             >
               <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -353,28 +353,28 @@ useHead({
           <div class="relative w-40 h-40 mx-auto mb-8">
             <!-- Animated signal rings -->
             <div class="absolute inset-0 flex items-center justify-center">
-              <div class="absolute w-32 h-32 rounded-full border-2 border-primary/20 animate-ping" style="animation-duration: 2s;" />
-              <div class="absolute w-24 h-24 rounded-full border-2 border-primary/30 animate-ping" style="animation-duration: 2.5s;" />
-              <div class="absolute w-16 h-16 rounded-full border-2 border-primary/40 animate-ping" style="animation-duration: 3s;" />
+              <div class="absolute w-32 h-32 rounded-full border-2 border-[hsl(var(--primary))]/20 animate-ping" style="animation-duration: 2s;" />
+              <div class="absolute w-24 h-24 rounded-full border-2 border-[hsl(var(--primary))]/30 animate-ping" style="animation-duration: 2.5s;" />
+              <div class="absolute w-16 h-16 rounded-full border-2 border-[hsl(var(--primary))]/40 animate-ping" style="animation-duration: 3s;" />
             </div>
             <!-- Center icon -->
             <div class="absolute inset-0 flex items-center justify-center">
-              <div class="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center shadow-lg">
-                <svg class="w-8 h-8 text-primary-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <div class="w-16 h-16 rounded-2xl bg-[hsl(var(--primary))] flex items-center justify-center shadow-lg">
+                <svg class="w-8 h-8 text-[hsl(var(--primary-foreground))]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                 </svg>
               </div>
             </div>
           </div>
 
-          <h3 class="text-2xl font-bold mb-3 text-foreground">
+          <h3 class="text-2xl font-bold mb-3 text-[hsl(var(--foreground))]">
             No matching articles
           </h3>
-          <p class="text-muted-foreground mb-6 max-w-md mx-auto">
+          <p class="text-[hsl(var(--muted-foreground))] mb-6 max-w-md mx-auto">
             We couldn't find any articles matching your search. Try a different search term.
           </p>
           <button
-            class="inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium rounded-lg border border-border bg-card text-foreground hover:bg-accent transition-colors"
+            class="inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))] text-[hsl(var(--foreground))] hover:bg-[hsl(var(--accent))] transition-colors"
             @click="searchQuery = ''"
           >
             Clear Search

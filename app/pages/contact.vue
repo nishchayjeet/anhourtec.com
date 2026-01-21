@@ -213,11 +213,11 @@ useHead({
 </script>
 
 <template>
-  <section class="relative overflow-hidden bg-background min-h-screen">
+  <section class="relative overflow-hidden bg-[hsl(var(--background))] min-h-screen">
     <!-- Background Pattern -->
     <div class="absolute inset-0 overflow-hidden">
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-b from-primary/10 via-primary/5 to-transparent rounded-full blur-3xl" />
-      <div class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-t from-primary/5 to-transparent rounded-full blur-3xl" />
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-b from-[hsl(var(--primary))]/10 via-[hsl(var(--primary))]/5 to-transparent rounded-full blur-3xl" />
+      <div class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-t from-[hsl(var(--primary))]/5 to-transparent rounded-full blur-3xl" />
       <!-- Grid pattern -->
       <div class="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
     </div>
@@ -226,20 +226,20 @@ useHead({
       <!-- Header -->
       <BlurFade>
         <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
-          <div class="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-primary/10 border border-primary/20">
+          <div class="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-[hsl(var(--primary))]/10 border border-[hsl(var(--primary))]/20">
             <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[hsl(var(--primary))] opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-[hsl(var(--primary))]"></span>
             </span>
-            <span class="text-sm font-medium text-primary">
+            <span class="text-sm font-medium text-[hsl(var(--primary))]">
               Let's Build Something Great
             </span>
           </div>
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground tracking-tight">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-[hsl(var(--foreground))] tracking-tight">
             Contact
-            <span class="text-primary">Us</span>
+            <span class="text-[hsl(var(--primary))]">Us</span>
           </h1>
-          <p class="mt-6 text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          <p class="mt-6 text-lg lg:text-xl text-[hsl(var(--muted-foreground))] max-w-2xl mx-auto leading-relaxed">
             Have questions about our services? Our team is here to help you find the perfect solution for your business.
           </p>
         </div>
@@ -257,17 +257,17 @@ useHead({
                 v-for="(item, index) in contactItems"
                 :key="item.title"
                 :href="item.href"
-                class="group flex items-start gap-4 p-5 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+                class="group flex items-start gap-4 p-5 rounded-2xl bg-[hsl(var(--card))] border border-[hsl(var(--border))] hover:border-[hsl(var(--primary))]/30 hover:shadow-lg transition-all duration-300"
               >
-                <div class="w-12 h-12 shrink-0 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300" v-html="item.icon" />
+                <div class="w-12 h-12 shrink-0 rounded-xl bg-[hsl(var(--primary))]/10 flex items-center justify-center text-[hsl(var(--primary))] group-hover:scale-110 transition-transform duration-300" v-html="item.icon" />
                 <div>
-                  <h3 class="text-lg font-semibold text-foreground mb-1">
+                  <h3 class="text-lg font-semibold text-[hsl(var(--foreground))] mb-1">
                     {{ item.title }}
                   </h3>
-                  <p class="text-base text-foreground/80">
+                  <p class="text-base text-[hsl(var(--foreground))]/80">
                     {{ item.content }}
                   </p>
-                  <p class="text-sm text-muted-foreground mt-1">
+                  <p class="text-sm text-[hsl(var(--muted-foreground))] mt-1">
                     {{ item.subtext }}
                   </p>
                 </div>
@@ -275,16 +275,16 @@ useHead({
             </div>
 
             <!-- Stay Connected -->
-            <div class="p-6 rounded-2xl bg-card border border-border">
+            <div class="p-6 rounded-2xl bg-[hsl(var(--card))] border border-[hsl(var(--border))]">
               <div class="flex items-center gap-3 mb-4">
-                <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10">
-                  <svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-[hsl(var(--primary))]/10">
+                  <svg class="w-5 h-5 text-[hsl(var(--primary))]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
                   </svg>
                 </div>
-                <h3 class="text-lg font-semibold text-foreground">Stay Connected</h3>
+                <h3 class="text-lg font-semibold text-[hsl(var(--foreground))]">Stay Connected</h3>
               </div>
-              <p class="text-muted-foreground mb-4">
+              <p class="text-[hsl(var(--muted-foreground))] mb-4">
                 Follow us for the latest tech trends and updates.
               </p>
               <div class="flex items-center gap-3">
@@ -295,7 +295,7 @@ useHead({
                   target="_blank"
                   rel="noopener noreferrer"
                   :aria-label="social.name"
-                  class="w-10 h-10 rounded-xl bg-background border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-200"
+                  class="w-10 h-10 rounded-xl bg-[hsl(var(--background))] border border-[hsl(var(--border))] flex items-center justify-center text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--primary))] hover:border-[hsl(var(--primary))]/50 transition-all duration-200"
                   v-html="social.icon"
                 />
               </div>
@@ -304,19 +304,19 @@ useHead({
             <!-- Quick Contact Card -->
             <a
               href="mailto:info@anhourtec.com"
-              class="block p-6 rounded-2xl bg-gradient-to-br from-primary/5 to-primary/10 border border-border hover:border-primary/30 transition-all group"
+              class="block p-6 rounded-2xl bg-gradient-to-br from-[hsl(var(--primary))]/5 to-[hsl(var(--primary))]/10 border border-[hsl(var(--border))] hover:border-[hsl(var(--primary))]/30 transition-all group"
             >
               <div class="flex items-center gap-4">
-                <div class="flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                  <svg class="w-7 h-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <div class="flex items-center justify-center w-14 h-14 rounded-2xl bg-[hsl(var(--primary))]/10 group-hover:bg-[hsl(var(--primary))]/20 transition-colors">
+                  <svg class="w-7 h-7 text-[hsl(var(--primary))]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                   </svg>
                 </div>
                 <div class="min-w-0 flex-1">
-                  <p class="text-lg font-semibold text-foreground">Quick Response</p>
-                  <p class="text-sm text-muted-foreground">Email us directly at info@anhourtec.com</p>
+                  <p class="text-lg font-semibold text-[hsl(var(--foreground))]">Quick Response</p>
+                  <p class="text-sm text-[hsl(var(--muted-foreground))]">Email us directly at info@anhourtec.com</p>
                 </div>
-                <div class="flex items-center gap-2 text-primary">
+                <div class="flex items-center gap-2 text-[hsl(var(--primary))]">
                   <span class="text-sm font-medium">Send Email</span>
                   <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
@@ -329,16 +329,16 @@ useHead({
 
         <!-- Right Side: Form -->
         <BlurFade :delay="0.2">
-          <div class="p-8 rounded-3xl bg-card border border-border shadow-xl">
+          <div class="p-8 rounded-3xl bg-[hsl(var(--card))] border border-[hsl(var(--border))] shadow-xl">
             <div class="flex items-center gap-3 mb-6">
-              <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10">
-                <svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-[hsl(var(--primary))]/10">
+                <svg class="w-5 h-5 text-[hsl(var(--primary))]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
                 </svg>
               </div>
               <div>
-                <h2 class="text-xl font-bold text-foreground">Send Us a Message</h2>
-                <p class="text-sm text-muted-foreground">We'll get back to you within 24 hours</p>
+                <h2 class="text-xl font-bold text-[hsl(var(--foreground))]">Send Us a Message</h2>
+                <p class="text-sm text-[hsl(var(--muted-foreground))]">We'll get back to you within 24 hours</p>
               </div>
             </div>
 
@@ -358,8 +358,8 @@ useHead({
 
               <!-- Name -->
               <div>
-                <label class="block text-sm font-medium text-foreground mb-2">
-                  Name <span class="text-destructive">*</span>
+                <label class="block text-sm font-medium text-[hsl(var(--foreground))] mb-2">
+                  Name <span class="text-[hsl(var(--destructive))]">*</span>
                 </label>
                 <input
                   v-model="form.name"
@@ -368,15 +368,15 @@ useHead({
                   required
                   placeholder="Your name"
                   autocomplete="name"
-                  class="w-full px-4 py-3 bg-background border border-input rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all"
+                  class="w-full px-4 py-3 bg-[hsl(var(--background))] border border-[hsl(var(--border))] rounded-xl text-[hsl(var(--foreground))] placeholder-[hsl(var(--muted-foreground))] focus:outline-none focus:ring-2 focus:ring-[hsl(var(--primary))] focus:border-transparent transition-all"
                   @focus="startFormTimer"
                 />
               </div>
 
               <!-- Email -->
               <div>
-                <label class="block text-sm font-medium text-foreground mb-2">
-                  Email <span class="text-destructive">*</span>
+                <label class="block text-sm font-medium text-[hsl(var(--foreground))] mb-2">
+                  Email <span class="text-[hsl(var(--destructive))]">*</span>
                 </label>
                 <input
                   v-model="form.email"
@@ -385,20 +385,20 @@ useHead({
                   required
                   placeholder="you@example.com"
                   autocomplete="email"
-                  class="w-full px-4 py-3 bg-background border border-input rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all"
+                  class="w-full px-4 py-3 bg-[hsl(var(--background))] border border-[hsl(var(--border))] rounded-xl text-[hsl(var(--foreground))] placeholder-[hsl(var(--muted-foreground))] focus:outline-none focus:ring-2 focus:ring-[hsl(var(--primary))] focus:border-transparent transition-all"
                   @focus="startFormTimer"
                 />
               </div>
 
               <!-- Service -->
               <div>
-                <label class="block text-sm font-medium text-foreground mb-2">
-                  Service Interest <span class="text-destructive">*</span>
+                <label class="block text-sm font-medium text-[hsl(var(--foreground))] mb-2">
+                  Service Interest <span class="text-[hsl(var(--destructive))]">*</span>
                 </label>
                 <select
                   v-model="form.service"
                   required
-                  class="w-full px-4 py-3 bg-background border border-input rounded-xl text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all"
+                  class="w-full px-4 py-3 bg-[hsl(var(--background))] border border-[hsl(var(--border))] rounded-xl text-[hsl(var(--foreground))] focus:outline-none focus:ring-2 focus:ring-[hsl(var(--primary))] focus:border-transparent transition-all"
                   @focus="startFormTimer"
                 >
                   <option value="" disabled>Select a service</option>
@@ -410,9 +410,9 @@ useHead({
 
               <!-- Message -->
               <div>
-                <label class="block text-sm font-medium text-foreground mb-2">
-                  Message <span class="text-destructive">*</span>
-                  <span class="text-xs text-muted-foreground ml-2">({{ form.message.length }}/2000)</span>
+                <label class="block text-sm font-medium text-[hsl(var(--foreground))] mb-2">
+                  Message <span class="text-[hsl(var(--destructive))]">*</span>
+                  <span class="text-xs text-[hsl(var(--muted-foreground))] ml-2">({{ form.message.length }}/2000)</span>
                 </label>
                 <textarea
                   v-model="form.message"
@@ -421,7 +421,7 @@ useHead({
                   maxlength="2000"
                   required
                   placeholder="Tell us about your project..."
-                  class="w-full px-4 py-3 bg-background border border-input rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all resize-none"
+                  class="w-full px-4 py-3 bg-[hsl(var(--background))] border border-[hsl(var(--border))] rounded-xl text-[hsl(var(--foreground))] placeholder-[hsl(var(--muted-foreground))] focus:outline-none focus:ring-2 focus:ring-[hsl(var(--primary))] focus:border-transparent transition-all resize-none"
                   @focus="startFormTimer"
                 ></textarea>
               </div>
@@ -435,31 +435,32 @@ useHead({
                 leave-from-class="opacity-100"
                 leave-to-class="opacity-0"
               >
-                <div v-if="formError" class="flex items-center gap-3 p-4 rounded-xl bg-destructive/10 border border-destructive/20">
-                  <div class="flex items-center justify-center w-8 h-8 rounded-full bg-destructive/20">
-                    <svg class="w-5 h-5 text-destructive" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <div v-if="formError" class="flex items-center gap-3 p-4 rounded-xl bg-[hsl(var(--destructive))]/10 border border-[hsl(var(--destructive))]/20">
+                  <div class="flex items-center justify-center w-8 h-8 rounded-full bg-[hsl(var(--destructive))]/20">
+                    <svg class="w-5 h-5 text-[hsl(var(--destructive))]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
                     </svg>
                   </div>
-                  <p class="text-destructive text-sm">{{ formError }}</p>
+                  <p class="text-[hsl(var(--destructive))] text-sm">{{ formError }}</p>
                 </div>
               </Transition>
 
               <!-- Submit Button -->
-              <button
+              <UButton
                 type="submit"
                 :disabled="isSubmitting"
-                class="w-full px-8 py-3 bg-primary text-primary-foreground font-medium rounded-xl hover:bg-primary/90 transition-all shadow-lg shadow-primary/25 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                block
+                size="lg"
               >
-                <svg v-if="!isSubmitting" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <svg v-if="!isSubmitting" class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
                 </svg>
-                <svg v-else class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
+                <svg v-else class="w-5 h-5 mr-2 animate-spin" fill="none" viewBox="0 0 24 24">
                   <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                   <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
                 {{ isSubmitting ? 'Sending...' : 'Send Message' }}
-              </button>
+              </UButton>
 
               <!-- Success Message -->
               <Transition

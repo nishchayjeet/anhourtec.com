@@ -40,7 +40,7 @@ onUnmounted(() => {
       <button
         v-if="isVisible"
         aria-label="Scroll to top"
-        class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-card shadow-lg hover:shadow-xl flex items-center justify-center text-muted-foreground hover:text-primary transition-all duration-200 hover:scale-110"
+        class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[hsl(var(--card))] shadow-lg hover:shadow-xl flex items-center justify-center text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--primary))] transition-all duration-200 hover:scale-110"
         @click="scrollToTop"
       >
         <!-- Circular progress indicator -->
@@ -54,7 +54,7 @@ onUnmounted(() => {
             cy="28"
             r="26"
             fill="none"
-            class="stroke-border"
+            class="stroke-[hsl(var(--border))]"
             stroke-width="2"
           />
           <!-- Progress circle -->
@@ -63,7 +63,7 @@ onUnmounted(() => {
             cy="28"
             r="26"
             fill="none"
-            class="stroke-primary transition-all duration-150 ease-out"
+            class="stroke-[hsl(var(--primary))] transition-all duration-150 ease-out"
             stroke-width="2"
             stroke-linecap="round"
             :stroke-dasharray="2 * Math.PI * 26"

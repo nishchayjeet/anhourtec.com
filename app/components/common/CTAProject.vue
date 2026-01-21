@@ -19,18 +19,18 @@ withDefaults(defineProps<Props>(), {
 <template>
   <section class="py-16 md:py-24">
     <div class="container max-w-6xl mx-auto px-4">
-      <BlurFade :delay="0.1">
-        <div class="bg-gradient-to-br from-primary/5 via-primary/10 to-transparent border border-border rounded-3xl p-8 md:p-16 text-center">
-          <h2 class="text-3xl md:text-5xl font-bold text-foreground mb-4">
+      <BlurFade :delay="0">
+        <div class="bg-gradient-to-br from-[hsl(var(--primary))]/5 via-[hsl(var(--primary))]/10 to-transparent border border-[hsl(var(--border))] rounded-3xl p-8 md:p-16 text-center">
+          <h2 class="text-3xl md:text-5xl font-bold text-[hsl(var(--foreground))] mb-4">
             {{ title }}
           </h2>
-          <p class="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+          <p class="text-lg text-[hsl(var(--muted-foreground))] max-w-2xl mx-auto mb-8">
             {{ description }}
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <NuxtLink
               :to="primaryButtonLink"
-              class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-primary-foreground bg-primary rounded-lg hover:bg-primary/90 transition-all duration-200 transform hover:scale-[1.02]"
+              class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-[hsl(var(--primary-foreground))] bg-[hsl(var(--primary))] rounded-lg hover:opacity-90 transition-all duration-200 transform hover:scale-[1.02]"
             >
               {{ primaryButtonText }}
               <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -41,7 +41,7 @@ withDefaults(defineProps<Props>(), {
             <a
               v-if="showEmailButton"
               href="mailto:hello@anhourtec.com"
-              class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold border border-border bg-background rounded-lg hover:bg-accent transition-all duration-200"
+              class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold border border-[hsl(var(--border))] bg-[hsl(var(--background))] rounded-lg hover:bg-[hsl(var(--accent))] transition-all duration-200"
             >
               <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />

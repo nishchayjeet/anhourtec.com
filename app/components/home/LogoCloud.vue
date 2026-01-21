@@ -7,24 +7,20 @@ const logos = [
   { src: '/images/logos/doac.svg', alt: 'DOAC', w: 158 },
   { src: '/images/logos/joco.svg', alt: 'JOCO', w: 158 },
 ]
-
 </script>
 
 <template>
-  <section class="border-y border-border bg-background/40">
+  <section class="border-y border-[hsl(var(--border))] bg-[hsl(var(--background))]">
     <div class="mx-auto max-w-6xl px-6 py-10 lg:px-8">
-      <!-- WordReveal heading -->
-      <BlurFade :delay="0.1">
-        <h2 class="flex justify-center text-sm font-medium text-muted-foreground">
-          Trusted by productive teams
-        </h2>
-      </BlurFade>
+      <!-- Heading -->
+      <h2 class="flex justify-center text-sm font-medium text-[hsl(var(--muted-foreground))]">
+        Trusted by productive teams
+      </h2>
 
       <!-- Marquee container -->
-      <BlurFade :delay="0.2">
-        <div class="relative mt-10 overflow-hidden">
+      <div class="relative mt-10 overflow-hidden">
         <!-- Marquee track -->
-        <div class="flex w-max animate-marquee gap-16">
+        <div class="flex w-max gap-16 animate-[marquee_30s_linear_infinite]">
           <!-- First copy -->
           <img
             v-for="(logo, i) in logos"
@@ -33,7 +29,7 @@ const logos = [
             :alt="logo.alt"
             :width="logo.w"
             height="40"
-            class="logo-img max-h-10 object-contain opacity-80"
+            class="max-h-10 object-contain opacity-70 dark:invert dark:grayscale"
           />
           <!-- Duplicated copy for seamless loop -->
           <img
@@ -43,16 +39,15 @@ const logos = [
             :alt="logo.alt"
             :width="logo.w"
             height="40"
-            class="logo-img max-h-10 object-contain opacity-80"
+            class="max-h-10 object-contain opacity-70 dark:invert dark:grayscale"
           />
         </div>
       </div>
-      </BlurFade>
     </div>
   </section>
 </template>
 
-<style scoped>
+<style>
 @keyframes marquee {
   0% {
     transform: translateX(0);
@@ -60,14 +55,5 @@ const logos = [
   100% {
     transform: translateX(-50%);
   }
-}
-
-.animate-marquee {
-  animation: marquee 30s linear infinite;
-}
-
-/* Invert logo colors in dark mode */
-:global(.dark) .logo-img {
-  filter: invert(1) grayscale(100%) brightness(2);
 }
 </style>

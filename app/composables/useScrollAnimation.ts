@@ -11,26 +11,42 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
 
   const elementRef = ref<HTMLElement | null>(null)
   const isVisible = ref(false)
+  let stopObserver: (() => void) | null = null
+  let fallbackTimeout: ReturnType<typeof setTimeout> | null = null
 
   onMounted(() => {
-    nextTick(() => {
-      if (!elementRef.value) return
+    // Fallback: make visible after 100ms if observer hasn't triggered
+    fallbackTimeout = setTimeout(() => {
+      if (!isVisible.value) {
+        isVisible.value = true
+      }
+    }, 100)
 
-      const { stop } = useIntersectionObserver(
-        elementRef,
-        ([{ isIntersecting }]) => {
-          if (isIntersecting) {
-            isVisible.value = true
-            if (once) {
-              stop()
-            }
-          } else if (!once) {
-            isVisible.value = false
+    const { stop } = useIntersectionObserver(
+      elementRef,
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          isVisible.value = true
+          if (fallbackTimeout) {
+            clearTimeout(fallbackTimeout)
           }
-        },
-        { threshold, rootMargin }
-      )
-    })
+          if (once) {
+            stop()
+          }
+        } else if (!once) {
+          isVisible.value = false
+        }
+      },
+      { threshold, rootMargin }
+    )
+    stopObserver = stop
+  })
+
+  onUnmounted(() => {
+    stopObserver?.()
+    if (fallbackTimeout) {
+      clearTimeout(fallbackTimeout)
+    }
   })
 
   return {

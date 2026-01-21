@@ -35,34 +35,32 @@ const faqs: FAQItem[] = [
 <template>
   <section class="py-6 md:py-16 text-center">
     <div class="container max-w-6xl mx-auto">
-      <BlurFade :delay="0.1">
-        <h2 class="font-sans text-foreground text-[1.7rem] md:text-[2.5rem] font-bold leading-tight mx-auto">
+      <BlurFade :delay="0">
+        <h2 class="font-sans text-[hsl(var(--foreground))] text-[1.7rem] md:text-[2.5rem] font-bold leading-tight mx-auto">
           Frequently asked questions
         </h2>
       </BlurFade>
 
       <div class="mt-6 md:mt-10">
-        <BlurFade :delay="0.15">
+        <BlurFade :delay="0.1">
           <div class="faq-wrapper text-left p-5 rounded-[52px]">
             <dl class="grid md:grid-cols-2 gap-6">
-              <BlurFade
+              <div
                 v-for="(faq, index) in faqs"
                 :key="index"
-                :delay="0.2 + index * 0.05"
+                class="faq-card text-left flex flex-col gap-4"
               >
-                <div class="faq-card text-left flex flex-col gap-4">
-                  <div class="p-6">
-                    <dt class="font-sans text-foreground text-sm md:text-base font-semibold tracking-tight mb-4">
-                      {{ faq.question }}
-                    </dt>
-                    <dd>
-                      <p class="font-sans text-muted-foreground text-sm md:text-base">
-                        {{ faq.answer }}
-                      </p>
-                    </dd>
-                  </div>
+                <div class="p-6">
+                  <dt class="font-sans text-[hsl(var(--foreground))] text-sm md:text-base font-semibold tracking-tight mb-4">
+                    {{ faq.question }}
+                  </dt>
+                  <dd>
+                    <p class="font-sans text-[hsl(var(--muted-foreground))] text-sm md:text-base">
+                      {{ faq.answer }}
+                    </p>
+                  </dd>
                 </div>
-              </BlurFade>
+              </div>
             </dl>
           </div>
         </BlurFade>
@@ -73,21 +71,25 @@ const faqs: FAQItem[] = [
 
 <style scoped>
 .faq-wrapper {
-  @apply border border-border bg-gradient-to-b from-card to-muted/50;
+  border: 1px solid hsl(var(--border));
+  background: linear-gradient(to bottom, hsl(var(--card)), hsl(var(--muted) / 0.5));
 }
 
 .faq-card {
-  @apply border border-border bg-card rounded-[32px];
-  @apply shadow-[0px_3px_12px_0px_rgba(0,0,0,0.04)];
+  border: 1px solid hsl(var(--border));
+  background-color: hsl(var(--card));
+  border-radius: 32px;
+  box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.04);
 }
 
 :global(.dark) .faq-wrapper {
-  @apply bg-gradient-to-b from-[#111111] to-[#0D0D0D] border-[#2A2A2A];
+  background: linear-gradient(to bottom, #111111, #0D0D0D);
+  border-color: #2A2A2A;
 }
 
 :global(.dark) .faq-card {
   background: linear-gradient(to right, #1c1c1c 0%, #1c1c1c 100%);
-  @apply border-[#2A2A2A]/50;
-  @apply shadow-[0_0_0_1px_rgba(255,255,255,0.06)];
+  border-color: rgba(42, 42, 42, 0.5);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 </style>

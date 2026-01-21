@@ -47,30 +47,31 @@ const features = [
 
 <template>
   <section class="container max-w-6xl mx-auto relative py-20">
-    <div class="text-center mb-16">
-      <BlurFade :duration="0.8">
-        <span class="rounded-full mb-4 px-4 py-2 border border-border text-sm font-medium inline-block">
+    <BlurFade :delay="0">
+      <div class="text-center mb-16">
+        <span class="rounded-full mb-4 px-4 py-2 border border-[hsl(var(--border))] text-sm font-medium inline-block">
           Our Services
         </span>
         <h2 class="text-3xl font-bold tracking-tight sm:text-5xl mb-4 mt-4">
           Technology solutions that scale
         </h2>
-        <p class="text-xl text-muted-foreground max-w-[800px] mx-auto">
+        <p class="text-xl text-[hsl(var(--muted-foreground))] max-w-[800px] mx-auto">
           From software development to IT infrastructure, we deliver end-to-end solutions
           that help businesses innovate and grow.
         </p>
-      </BlurFade>
-    </div>
+      </div>
+    </BlurFade>
 
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       <BlurFade
         v-for="(feature, index) in features"
         :key="feature.number"
-        :delay="index * 0.1"
-        :duration="0.6"
+        :delay="0.1 + index * 0.1"
       >
-        <div class="group border border-border bg-card hover:bg-accent/50 transition-colors rounded-xl p-6 h-full">
-          <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+        <div
+          class="group border border-[hsl(var(--border))] bg-[hsl(var(--card))] hover:bg-[hsl(var(--accent))]/50 transition-colors rounded-xl p-6 h-full"
+        >
+          <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[hsl(var(--primary))]/10 text-[hsl(var(--primary))]">
             <!-- Code icon -->
             <svg v-if="feature.icon === 'code'" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <polyline points="16,18 22,12 16,6" />
@@ -108,8 +109,8 @@ const features = [
               <line x1="12" y1="20" x2="12.01" y2="20" />
             </svg>
           </div>
-          <h3 class="text-lg font-semibold mb-2 text-foreground">{{ feature.title }}</h3>
-          <p class="text-muted-foreground text-sm">{{ feature.description }}</p>
+          <h3 class="text-lg font-semibold mb-2 text-[hsl(var(--foreground))]">{{ feature.title }}</h3>
+          <p class="text-[hsl(var(--muted-foreground))] text-sm">{{ feature.description }}</p>
         </div>
       </BlurFade>
     </div>

@@ -1,8 +1,22 @@
-@import "lenis/dist/lenis.css";
+@import "tailwindcss";
+@import "@nuxt/ui";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@theme static {
+  --font-sans: 'Geist', sans-serif;
+
+  /* Custom primary color - inverted scale for dark buttons in light mode */
+  --color-primary-50: #09090b;
+  --color-primary-100: #18181b;
+  --color-primary-200: #27272a;
+  --color-primary-300: #3f3f46;
+  --color-primary-400: #52525b;
+  --color-primary-500: #18181b;
+  --color-primary-600: #27272a;
+  --color-primary-700: #3f3f46;
+  --color-primary-800: #52525b;
+  --color-primary-900: #fafafa;
+  --color-primary-950: #ffffff;
+}
 
 /* Light mode CSS variables */
 :root {
@@ -27,8 +41,37 @@
   --ring: 240 5.9% 10%;
   --radius: 0.5rem;
   color-scheme: light;
+
+  /* Nuxt UI primary color override */
+  --ui-primary: #18181b;
 }
 
+/* Dark mode CSS variables */
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 0 0% 98%;
+  --primary-foreground: 240 5.9% 10%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --ring: 240 4.9% 83.9%;
+  color-scheme: dark;
+
+  /* Nuxt UI primary color override */
+  --ui-primary: #fafafa;
+}
 
 /* Prevent transitions on page load to avoid flash */
 html.no-transitions,
@@ -36,28 +79,26 @@ html.no-transitions * {
   transition: none !important;
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
+* {
+  border-color: hsl(var(--border));
+}
 
+html {
+  scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
   html {
-    scrollbar-gutter: stable;
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
   }
+}
 
-  /* Reduce motion for users who prefer it */
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
-  }
-
-  body {
-    @apply antialiased;
-    font-family: 'Geist', sans-serif;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11", "salt";
-  }
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Geist', sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11", "salt";
 }
 
 /* Apply background to html and body using CSS variables */
@@ -78,3 +119,23 @@ body {
   color: hsl(var(--primary-foreground));
 }
 
+/* Button solid variant color overrides */
+[data-slot="button"][data-variant="solid"][data-color="primary"],
+.btn-primary {
+  background-color: #18181b !important;
+  color: #fafafa !important;
+}
+
+[data-slot="button"][data-variant="solid"][data-color="primary"]:hover {
+  background-color: #27272a !important;
+}
+
+.dark [data-slot="button"][data-variant="solid"][data-color="primary"],
+.dark .btn-primary {
+  background-color: #fafafa !important;
+  color: #18181b !important;
+}
+
+.dark [data-slot="button"][data-variant="solid"][data-color="primary"]:hover {
+  background-color: #e4e4e7 !important;
+}

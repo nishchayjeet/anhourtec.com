@@ -1,39 +1,25 @@
 <script setup lang="ts">
 interface Props {
-  /** Base delay before animation starts (in seconds) */
-  delay?: number
-  /** Stagger delay between child elements (in seconds) */
-  stagger?: number
-  /** Animation duration (in seconds) */
-  duration?: number
-  /** Y offset for the slide effect (in pixels) */
-  yOffset?: number
-  /** Blur amount */
-  blur?: string
-  /** HTML tag to render */
+  animation?: 'fade' | 'slide-up' | 'slide-down' | 'slide-left' | 'slide-right'
+  delay?: number // in milliseconds
+  duration?: number // in milliseconds
   tag?: string
-  /** Intersection observer threshold */
   threshold?: number
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  animation: 'slide-up',
   delay: 0,
-  stagger: 0.1,
-  duration: 0.6,
-  yOffset: 6,
-  blur: '6px',
-  tag: 'section',
+  duration: 600,
+  tag: 'div',
   threshold: 0.1,
 })
 
 const { elementRef, isVisible } = useScrollAnimation({ threshold: props.threshold })
 
-// Provide stagger context to child components
-provide('animatedSection', {
-  isVisible,
-  stagger: props.stagger,
-  baseDelay: props.delay,
-})
+// Convert milliseconds to seconds for CSS
+const delayInSeconds = computed(() => props.delay / 1000)
+const durationInSeconds = computed(() => props.duration / 1000)
 </script>
 
 <template>
@@ -41,43 +27,86 @@ provide('animatedSection', {
     :is="tag"
     ref="elementRef"
     class="animated-section"
-    :class="{ 'animated-section--visible': isVisible }"
+    :class="[
+      `animated-section--${animation}`,
+      { 'animated-section--visible': isVisible }
+    ]"
     :style="{
-      '--anim-delay': `${delay}s`,
-      '--anim-duration': `${duration}s`,
-      '--anim-y': `${yOffset}px`,
-      '--anim-blur': blur,
-      '--anim-stagger': `${stagger}s`,
+      '--anim-delay': `${delayInSeconds}s`,
+      '--anim-duration': `${durationInSeconds}s`,
     }"
   >
-    <slot :is-visible="isVisible" :stagger="stagger" />
+    <slot :is-visible="isVisible" />
   </component>
 </template>
 
 <style scoped>
 .animated-section {
-  opacity: 0;
-  transform: translateY(var(--anim-y, 6px));
-  filter: blur(var(--anim-blur, 6px));
   transition:
     opacity var(--anim-duration, 0.6s) ease-out var(--anim-delay, 0s),
     transform var(--anim-duration, 0.6s) ease-out var(--anim-delay, 0s),
     filter var(--anim-duration, 0.6s) ease-out var(--anim-delay, 0s);
 }
 
-.animated-section--visible {
-  opacity: 1;
-  transform: translateY(0);
-  filter: blur(0px);
+/* Fade animation */
+.animated-section--fade {
+  opacity: 0;
 }
 
-/* Reduce motion for users who prefer it */
+.animated-section--fade.animated-section--visible {
+  opacity: 1;
+}
+
+/* Slide-up animation */
+.animated-section--slide-up {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.animated-section--slide-up.animated-section--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide-down animation */
+.animated-section--slide-down {
+  opacity: 0;
+  transform: translateY(-24px);
+}
+
+.animated-section--slide-down.animated-section--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide-left animation */
+.animated-section--slide-left {
+  opacity: 0;
+  transform: translateX(24px);
+}
+
+.animated-section--slide-left.animated-section--visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Slide-right animation */
+.animated-section--slide-right {
+  opacity: 0;
+  transform: translateX(-24px);
+}
+
+.animated-section--slide-right.animated-section--visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animated-section {
-    opacity: 1;
-    transform: none;
-    filter: none;
-    transition: none;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
   }
 }
 </style>

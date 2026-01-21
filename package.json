@@ -1,29 +1,31 @@
 {
-  "name": "anhourtec-nuxt",
-  "version": "1.0.0",
+  "name": "anhourtec",
   "private": true,
   "type": "module",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "typecheck": "nuxt typecheck"
   },
   "dependencies": {
+    "@iconify-json/lucide": "^1.2.86",
+    "@iconify-json/simple-icons": "^1.2.67",
+    "@nuxt/image": "2.0.0",
+    "@nuxt/ui": "^4.4.0",
+    "@nuxtjs/color-mode": "^4.0.0",
     "@nuxtjs/seo": "^3.3.0",
-    "lenis": "^1.3.17",
+    "@vueuse/core": "^14.1.0",
     "marked": "^17.0.1",
-    "nuxt": "^4.2.2"
+    "nuxt": "^4.2.2",
+    "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
-    "@nuxt/fonts": "^0.12.1",
-    "@nuxt/image": "^2.0.0",
-    "@nuxtjs/color-mode": "^4.0.0",
-    "@nuxtjs/tailwindcss": "^6.14.0",
-    "@tailwindcss/typography": "^0.5.19",
-    "@vueuse/nuxt": "^14.1.0",
-    "tailwindcss-animate": "^1.0.7",
-    "typescript": "^5.9.3"
+    "@nuxt/eslint": "^1.12.1",
+    "eslint": "^9.39.2",
+    "typescript": "^5.9.3",
+    "vue-tsc": "^3.2.2"
   }
 }

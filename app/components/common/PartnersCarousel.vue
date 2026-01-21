@@ -61,7 +61,7 @@ const logos = [
   </section>
 </template>
 
-<style scoped>
+<style>
 @keyframes marquee {
   0% {
     transform: translateX(0);
@@ -76,7 +76,7 @@ const logos = [
 }
 
 /* Invert logo colors in dark mode */
-:global(.dark) .logo-img {
+.dark .logo-img {
   filter: invert(1) grayscale(100%) brightness(2);
 }
 </style>

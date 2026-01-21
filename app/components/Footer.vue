@@ -1,31 +1,27 @@
 <script setup lang="ts">
 const footerNavigation = {
   services: [
-    { name: 'LoRaWAN IoT Infrastructure', href: '/services/iot-infrastructure' },
-    { name: 'Custom Software Development', href: '/services/software-development' },
-    { name: 'Web Applications', href: '/services/web-applications' },
-    { name: 'DevOps Services', href: '/services/devops' },
-    { name: 'AI Integration', href: '/services/ai-integration' },
-    { name: 'Consulting', href: '/services/consulting' },
+    { name: 'Custom Software', href: '/services/software' },
+    { name: 'IT Infrastructure', href: '/services/infrastructure' },
+    { name: 'Network Solutions', href: '/services/networking' },
+    { name: 'Managed Services', href: '/services/msp' },
   ],
   solutions: [
-    { name: 'IoT Community Platform', href: '/solutions/iot-community' },
-    { name: 'Edge Kinect', href: '/solutions/edge-kinect' },
-    { name: 'Device Connectors', href: '/solutions/device-connectors' },
-    { name: 'Analytics & Reporting', href: '/solutions/analytics' },
+    { name: 'For Startups', href: '/solutions/startups' },
+    { name: 'For Enterprise', href: '/solutions/enterprise' },
+    { name: 'For Healthcare', href: '/solutions/healthcare' },
+    { name: 'For Legal', href: '/solutions/legal' },
   ],
   company: [
     { name: 'About', href: '/about' },
     { name: 'Blog', href: '/blog' },
-    { name: 'Case Studies', href: '/case-studies' },
     { name: 'Careers', href: '/careers' },
     { name: 'Contact', href: '/contact' },
   ],
   support: [
-    { name: 'Documentation', href: '/docs', external: true },
-    { name: 'API Reference', href: '/api', external: true },
+    { name: 'Documentation', href: '/docs' },
     { name: 'Support', href: '/support' },
-    { name: 'Status', href: '/status', external: true },
+    { name: 'FAQ', href: '/faq' },
   ],
   legal: [
     { name: 'Privacy Policy', href: '/privacy' },
@@ -34,29 +30,11 @@ const footerNavigation = {
   ],
 }
 
-const socialLinks = [
-  {
-    name: 'GitHub',
-    href: 'https://github.com/anhourtec',
-    icon: 'github',
-  },
-  {
-    name: 'Twitter',
-    href: 'https://twitter.com/anhourtec',
-    icon: 'twitter',
-  },
-  {
-    name: 'LinkedIn',
-    href: 'https://linkedin.com/company/anhourtec',
-    icon: 'linkedin',
-  },
-]
-
 const currentYear = new Date().getFullYear()
 </script>
 
 <template>
-  <footer class="relative border-t border-border bg-background overflow-hidden">
+  <footer class="relative border-t border-[hsl(var(--border))] bg-[hsl(var(--background))] overflow-hidden">
     <!-- Animated background -->
     <div class="absolute inset-0 pointer-events-none opacity-30">
       <UnicornScene class="w-full h-full" />
@@ -65,12 +43,12 @@ const currentYear = new Date().getFullYear()
       <div class="mt-16 grid grid-cols-2 gap-8 lg:grid-cols-5 xl:col-span-2 xl:mt-0">
         <!-- Services -->
         <div>
-          <h3 class="text-sm font-semibold text-foreground">Services</h3>
+          <h3 class="text-sm font-semibold text-[hsl(var(--foreground))]">Services</h3>
           <ul class="mt-4 space-y-3">
             <li v-for="item in footerNavigation.services" :key="item.name">
               <NuxtLink
                 :to="item.href"
-                class="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                class="text-sm text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
               >
                 {{ item.name }}
               </NuxtLink>
@@ -80,12 +58,12 @@ const currentYear = new Date().getFullYear()
 
         <!-- Solutions -->
         <div>
-          <h3 class="text-sm font-semibold text-foreground">Solutions</h3>
+          <h3 class="text-sm font-semibold text-[hsl(var(--foreground))]">Solutions</h3>
           <ul class="mt-4 space-y-3">
             <li v-for="item in footerNavigation.solutions" :key="item.name">
               <NuxtLink
                 :to="item.href"
-                class="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                class="text-sm text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
               >
                 {{ item.name }}
               </NuxtLink>
@@ -95,12 +73,12 @@ const currentYear = new Date().getFullYear()
 
         <!-- Company -->
         <div>
-          <h3 class="text-sm font-semibold text-foreground">Company</h3>
+          <h3 class="text-sm font-semibold text-[hsl(var(--foreground))]">Company</h3>
           <ul class="mt-4 space-y-3">
             <li v-for="item in footerNavigation.company" :key="item.name">
               <NuxtLink
                 :to="item.href"
-                class="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                class="text-sm text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
               >
                 {{ item.name }}
               </NuxtLink>
@@ -110,13 +88,12 @@ const currentYear = new Date().getFullYear()
 
         <!-- Support -->
         <div>
-          <h3 class="text-sm font-semibold text-foreground">Support</h3>
+          <h3 class="text-sm font-semibold text-[hsl(var(--foreground))]">Support</h3>
           <ul class="mt-4 space-y-3">
             <li v-for="item in footerNavigation.support" :key="item.name">
               <NuxtLink
                 :to="item.href"
-                :target="item.external ? '_blank' : undefined"
-                class="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                class="text-sm text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
               >
                 {{ item.name }}
               </NuxtLink>
@@ -126,12 +103,12 @@ const currentYear = new Date().getFullYear()
 
         <!-- Legal -->
         <div>
-          <h3 class="text-sm font-semibold text-foreground">Legal</h3>
+          <h3 class="text-sm font-semibold text-[hsl(var(--foreground))]">Legal</h3>
           <ul class="mt-4 space-y-3">
             <li v-for="item in footerNavigation.legal" :key="item.name">
               <NuxtLink
                 :to="item.href"
-                class="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                class="text-sm text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
               >
                 {{ item.name }}
               </NuxtLink>
@@ -140,9 +117,9 @@ const currentYear = new Date().getFullYear()
         </div>
       </div>
 
-      <div class="mt-12 border-t border-border pt-8">
+      <div class="mt-12 border-t border-[hsl(var(--border))] pt-8">
         <div class="flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <p class="text-sm text-muted-foreground">
+          <p class="text-sm text-[hsl(var(--foreground))]">
             &copy; {{ currentYear }} AnHourTec. All rights reserved.
           </p>
           <div class="flex space-x-6">
@@ -150,7 +127,7 @@ const currentYear = new Date().getFullYear()
             <a
               href="https://github.com/anhourtec"
               target="_blank"
-              class="text-muted-foreground hover:text-foreground transition-colors"
+              class="text-[hsl(var(--foreground))] hover:opacity-80 transition-colors"
             >
               <span class="sr-only">GitHub</span>
               <svg fill="currentColor" viewBox="0 0 24 24" class="h-5 w-5" aria-hidden="true">
@@ -166,7 +143,7 @@ const currentYear = new Date().getFullYear()
             <a
               href="https://twitter.com/anhourtec"
               target="_blank"
-              class="text-muted-foreground hover:text-foreground transition-colors"
+              class="text-[hsl(var(--foreground))] hover:opacity-80 transition-colors"
             >
               <span class="sr-only">Twitter</span>
               <svg fill="currentColor" viewBox="0 0 24 24" class="h-5 w-5" aria-hidden="true">
@@ -180,7 +157,7 @@ const currentYear = new Date().getFullYear()
             <a
               href="https://linkedin.com/company/anhourtec"
               target="_blank"
-              class="text-muted-foreground hover:text-foreground transition-colors"
+              class="text-[hsl(var(--foreground))] hover:opacity-80 transition-colors"
             >
               <span class="sr-only">LinkedIn</span>
               <svg fill="currentColor" viewBox="0 0 24 24" class="h-5 w-5" aria-hidden="true">

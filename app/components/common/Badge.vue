@@ -12,35 +12,34 @@ const props = withDefaults(defineProps<Props>(), {
   size: 'md',
 })
 
-// Light mode: dark background, white text
 const variantClasses = {
   orange: {
-    outer: 'text-white from-zinc-700 to-zinc-800',
-    inner: 'from-zinc-800 to-zinc-900',
+    outer: 'text-white from-[#3f3f46] to-[#27272a]',
+    inner: 'from-[#27272a] to-[#18181b]',
   },
   blue: {
-    outer: 'text-white from-zinc-700 to-zinc-800',
-    inner: 'from-zinc-800 to-zinc-900',
+    outer: 'text-white from-[#3f3f46] to-[#27272a]',
+    inner: 'from-[#27272a] to-[#18181b]',
   },
   purple: {
-    outer: 'text-white from-zinc-700 to-zinc-800',
-    inner: 'from-zinc-800 to-zinc-900',
+    outer: 'text-white from-[#3f3f46] to-[#27272a]',
+    inner: 'from-[#27272a] to-[#18181b]',
   },
   green: {
-    outer: 'text-white from-zinc-700 to-zinc-800',
-    inner: 'from-zinc-800 to-zinc-900',
+    outer: 'text-white from-[#3f3f46] to-[#27272a]',
+    inner: 'from-[#27272a] to-[#18181b]',
   },
   yellow: {
-    outer: 'text-white from-zinc-700 to-zinc-800',
-    inner: 'from-zinc-800 to-zinc-900',
+    outer: 'text-white from-[#3f3f46] to-[#27272a]',
+    inner: 'from-[#27272a] to-[#18181b]',
   },
   red: {
-    outer: 'text-white from-zinc-700 to-zinc-800',
-    inner: 'from-zinc-800 to-zinc-900',
+    outer: 'text-white from-[#3f3f46] to-[#27272a]',
+    inner: 'from-[#27272a] to-[#18181b]',
   },
   gray: {
-    outer: 'text-white from-zinc-700 to-zinc-800',
-    inner: 'from-zinc-800 to-zinc-900',
+    outer: 'text-white from-[#3f3f46] to-[#27272a]',
+    inner: 'from-[#27272a] to-[#18181b]',
   },
 }
 
@@ -66,7 +65,6 @@ const sizeClasses = {
 </template>
 
 <style scoped>
-/* Dark mode styles - light background, dark text */
 :global(.dark) .badge-wrapper[data-variant="orange"],
 :global(.dark) .badge-wrapper[data-variant="blue"],
 :global(.dark) .badge-wrapper[data-variant="purple"],
@@ -74,7 +72,9 @@ const sizeClasses = {
 :global(.dark) .badge-wrapper[data-variant="yellow"],
 :global(.dark) .badge-wrapper[data-variant="red"],
 :global(.dark) .badge-wrapper[data-variant="gray"] {
-  @apply text-zinc-900 from-zinc-200 to-zinc-300;
+  color: #18181b;
+  --tw-gradient-from: #e4e4e7;
+  --tw-gradient-to: #d4d4d8;
 }
 
 :global(.dark) .badge-wrapper[data-variant="orange"] .badge-inner,
@@ -84,6 +84,7 @@ const sizeClasses = {
 :global(.dark) .badge-wrapper[data-variant="yellow"] .badge-inner,
 :global(.dark) .badge-wrapper[data-variant="red"] .badge-inner,
 :global(.dark) .badge-wrapper[data-variant="gray"] .badge-inner {
-  @apply from-zinc-100 to-zinc-200;
+  --tw-gradient-from: #f4f4f5;
+  --tw-gradient-to: #e4e4e7;
 }
 </style>

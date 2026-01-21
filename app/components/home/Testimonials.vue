@@ -85,11 +85,11 @@ const featuredTestimonial: Testimonial = {
 <template>
   <section class="py-6 md:py-16">
     <div class="container max-w-6xl mx-auto text-center">
-      <BlurFade :delay="0.1">
-        <h2 class="font-sans text-foreground text-[1.7rem] md:text-[2.5rem] font-bold leading-tight mx-auto max-w-[620px]">
+      <BlurFade :delay="0">
+        <h2 class="font-sans text-[hsl(var(--foreground))] text-[1.7rem] md:text-[2.5rem] font-bold leading-tight mx-auto max-w-[620px]">
           Trusted by businesses across Victoria
         </h2>
-        <p class="font-sans text-muted-foreground text-lg max-w-[650px] mx-auto mt-2.5">
+        <p class="font-sans text-[hsl(var(--muted-foreground))] text-lg max-w-[650px] mx-auto mt-2.5">
           Our clients love the reliability and expertise we bring to their technology.
         </p>
       </BlurFade>
@@ -100,24 +100,24 @@ const featuredTestimonial: Testimonial = {
           <BlurFade
             v-for="(testimonial, index) in testimonials.slice(0, 5)"
             :key="testimonial.author.name"
-            :delay="0.15 + index * 0.05"
+            :delay="0.1 + index * 0.1"
           >
             <div class="testimonial-card text-left flex flex-col">
               <div class="p-6">
-                <p class="font-sans text-muted-foreground text-base">
+                <p class="font-sans text-[hsl(var(--muted-foreground))] text-base">
                   {{ testimonial.body }}
                 </p>
               </div>
-              <div class="p-6 border-t border-border flex items-center">
+              <div class="p-6 border-t border-[hsl(var(--border))] flex items-center">
                 <div class="flex items-center gap-4">
-                  <div class="size-12 rounded-full bg-muted border-2 border-border flex items-center justify-center">
-                    <span class="text-foreground font-semibold">{{ testimonial.author.name.charAt(0) }}</span>
+                  <div class="size-12 rounded-full bg-[hsl(var(--muted))] border-2 border-[hsl(var(--border))] flex items-center justify-center">
+                    <span class="text-[hsl(var(--foreground))] font-semibold">{{ testimonial.author.name.charAt(0) }}</span>
                   </div>
                   <div class="text-left">
-                    <p class="font-sans text-foreground text-base font-semibold">
+                    <p class="font-sans text-[hsl(var(--foreground))] text-base font-semibold">
                       {{ testimonial.author.name }}
                     </p>
-                    <p class="font-sans text-muted-foreground text-sm">
+                    <p class="font-sans text-[hsl(var(--muted-foreground))] text-sm">
                       {{ testimonial.author.role }}
                     </p>
                   </div>
@@ -130,23 +130,23 @@ const featuredTestimonial: Testimonial = {
         <!-- Desktop layout -->
         <div class="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- Featured testimonial -->
-          <BlurFade :delay="0.15" class="sm:col-span-2 lg:col-span-3">
+          <BlurFade :delay="0.1" class="sm:col-span-2 lg:col-span-3">
             <div class="testimonial-card text-left flex flex-col">
               <div class="p-6">
-                <p class="font-sans text-foreground text-lg font-semibold leading-7 tracking-tight">
+                <p class="font-sans text-[hsl(var(--foreground))] text-lg font-semibold leading-7 tracking-tight">
                   {{ featuredTestimonial.body }}
                 </p>
               </div>
-              <div class="p-6 border-t border-border flex items-center">
+              <div class="p-6 border-t border-[hsl(var(--border))] flex items-center">
                 <div class="flex items-center gap-4">
-                  <div class="size-12 rounded-full bg-muted border-2 border-border flex items-center justify-center">
-                    <span class="text-foreground font-semibold">{{ featuredTestimonial.author.name.charAt(0) }}</span>
+                  <div class="size-12 rounded-full bg-[hsl(var(--muted))] border-2 border-[hsl(var(--border))] flex items-center justify-center">
+                    <span class="text-[hsl(var(--foreground))] font-semibold">{{ featuredTestimonial.author.name.charAt(0) }}</span>
                   </div>
                   <div class="text-left">
-                    <p class="font-sans text-foreground text-base font-semibold">
+                    <p class="font-sans text-[hsl(var(--foreground))] text-base font-semibold">
                       {{ featuredTestimonial.author.name }}
                     </p>
-                    <p class="font-sans text-muted-foreground text-sm">
+                    <p class="font-sans text-[hsl(var(--muted-foreground))] text-sm">
                       {{ featuredTestimonial.author.role }}
                     </p>
                   </div>
@@ -159,24 +159,24 @@ const featuredTestimonial: Testimonial = {
           <BlurFade
             v-for="(testimonial, index) in testimonials.slice(0, 6)"
             :key="testimonial.author.name"
-            :delay="0.2 + index * 0.05"
+            :delay="0.2 + index * 0.1"
           >
             <div class="testimonial-card text-left flex flex-col h-full">
               <div class="p-6 flex-1">
-                <p class="font-sans text-muted-foreground text-base">
+                <p class="font-sans text-[hsl(var(--muted-foreground))] text-base">
                   {{ testimonial.body }}
                 </p>
               </div>
-              <div class="p-6 border-t border-border flex items-center">
+              <div class="p-6 border-t border-[hsl(var(--border))] flex items-center">
                 <div class="flex items-center gap-4">
-                  <div class="size-10 rounded-full bg-muted border-2 border-border flex items-center justify-center">
-                    <span class="text-foreground font-semibold text-sm">{{ testimonial.author.name.charAt(0) }}</span>
+                  <div class="size-10 rounded-full bg-[hsl(var(--muted))] border-2 border-[hsl(var(--border))] flex items-center justify-center">
+                    <span class="text-[hsl(var(--foreground))] font-semibold text-sm">{{ testimonial.author.name.charAt(0) }}</span>
                   </div>
                   <div class="text-left">
-                    <p class="font-sans text-foreground text-sm font-semibold">
+                    <p class="font-sans text-[hsl(var(--foreground))] text-sm font-semibold">
                       {{ testimonial.author.name }}
                     </p>
-                    <p class="font-sans text-muted-foreground text-xs">
+                    <p class="font-sans text-[hsl(var(--muted-foreground))] text-xs">
                       {{ testimonial.author.role }}
                     </p>
                   </div>
@@ -192,11 +192,13 @@ const featuredTestimonial: Testimonial = {
 
 <style scoped>
 .testimonial-card {
-  @apply border border-border bg-card rounded-2xl;
-  @apply shadow-[0px_3px_12px_0px_rgba(0,0,0,0.04)];
+  border: 1px solid hsl(var(--border));
+  background-color: hsl(var(--card));
+  border-radius: 1rem;
+  box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.04);
 }
 
 :global(.dark) .testimonial-card {
-  @apply shadow-[0_0_0_1px_rgba(255,255,255,0.06)];
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 </style>

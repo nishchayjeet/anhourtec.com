@@ -22,7 +22,7 @@ const imageUrl = computed(() => props.image?.src || '')
 
 <template>
   <article
-    class="relative group hover-lift overflow-hidden transition-all duration-300 bg-card rounded-lg border border-border p-4 sm:p-6"
+    class="relative group hover-lift overflow-hidden transition-all duration-300 bg-[hsl(var(--card))] rounded-lg border border-[hsl(var(--border))] p-4 sm:p-6"
   >
     <header>
       <div
@@ -42,7 +42,7 @@ const imageUrl = computed(() => props.image?.src || '')
 
       <!-- Blog badge -->
       <div class="mb-3">
-        <span class="inline-flex items-center px-2.5 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary">
+        <span class="inline-flex items-center px-2.5 py-1 text-xs font-medium rounded-full bg-[hsl(var(--primary))]/10 text-[hsl(var(--primary))]">
           <svg class="w-3 h-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
           </svg>
@@ -50,27 +50,27 @@ const imageUrl = computed(() => props.image?.src || '')
         </span>
       </div>
 
-      <h3 class="text-xl font-bold line-clamp-2 text-foreground">
-        <NuxtLink :to="to" class="hover:text-primary transition-colors duration-300">
+      <h3 class="text-xl font-bold line-clamp-2 text-[hsl(var(--foreground))]">
+        <NuxtLink :to="to" class="hover:text-[hsl(var(--primary))] transition-colors duration-300">
           <span class="absolute inset-0 z-10" aria-hidden="true" />
           {{ title }}
         </NuxtLink>
       </h3>
     </header>
 
-    <p class="mt-3 text-muted-foreground line-clamp-3 flex-grow">
+    <p class="mt-3 text-[hsl(var(--muted-foreground))] line-clamp-3 flex-grow">
       {{ description }}
     </p>
 
-    <footer class="mt-4 pt-4 border-t border-border flex items-center justify-between">
+    <footer class="mt-4 pt-4 border-t border-[hsl(var(--border))] flex items-center justify-between">
       <time
         v-if="publishedAt"
         :datetime="publishedAt"
-        class="text-sm text-muted-foreground"
+        class="text-sm text-[hsl(var(--muted-foreground))]"
       >
         {{ formatDate(publishedAt) }}
       </time>
-      <span v-if="author" class="text-sm text-muted-foreground">
+      <span v-if="author" class="text-sm text-[hsl(var(--muted-foreground))]">
         {{ author.name }}
       </span>
     </footer>

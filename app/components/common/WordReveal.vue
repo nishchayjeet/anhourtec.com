@@ -16,10 +16,10 @@ const props = withDefaults(defineProps<Props>(), {
 <template>
   <span class="inline">
     <template v-for="(word, index) in words" :key="index">
-      <BlurFade :delay="delay + duration * index" tag="span" class="inline-block">
+      <span class="inline-block">
         <span v-html="word" />
         <span v-if="index < words.length - 1" :class="['inline-block', spaceBetween]">&nbsp;</span>
-      </BlurFade>
+      </span>
     </template>
   </span>
 </template>
