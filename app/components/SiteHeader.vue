@@ -44,9 +44,9 @@ const keepDropdownOpen = () => {
   if (dropdownTimeout) clearTimeout(dropdownTimeout)
 }
 
-// Logo URLs - named by what background they're designed for
-const lightLogo = 'https://res.cloudinary.com/dpurlknvy/image/upload/v1760466147/logo-lightbg-hp-transparent_qjb47d.png'
-const darkLogo = 'https://res.cloudinary.com/dpurlknvy/image/upload/v1749425792/logo-darkbg-hpp_btsxy8.png'
+// Logo paths - named by what background they're designed for
+const lightLogo = '/anhourtec_logo_darkbg.svg'
+const darkLogo = '/anhourtec_logo_lightbg.svg'
 
 // Use colorMode for reactive logo switching (tracks DOM state)
 const logoSrc = computed(() => {
